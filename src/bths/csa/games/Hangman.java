@@ -29,7 +29,10 @@ public class Hangman {
     }
   }
 }
-//i don't know how this works
+/*
+ * To Do
+ * Links with descriptor in list
+ */
 /*
 import java.io.IOException;  
 import org.jsoup.Jsoup;  
