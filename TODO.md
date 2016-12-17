@@ -1,7 +1,7 @@
 # TODO
 #### August
 - [ ] Magpie interface
-- [ ] Parsing engine
+- [ ] Parsing engine (Possibly using recurrent neural networks) 
 - [ ] Memory
 
 #### Asif
