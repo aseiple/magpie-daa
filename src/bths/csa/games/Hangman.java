@@ -67,7 +67,7 @@ public class Hangman
 	public String get_letter_response(String statement)
 	{
 		String response = "";
-		
+		//needs letter search
 		return response;
 	}
 	public static String[][] linklistMaker(String link1, int i)
@@ -103,6 +103,10 @@ public class Hangman
 			e.printStackTrace();
 		}
 		return linklist;
+	}
+	public static void twodi_list_search(String[][] list, String item)
+	{
+		
 	}
 	public static void printTwDiAr(String[][] arry2)
 	{
