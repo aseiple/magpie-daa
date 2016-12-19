@@ -106,7 +106,16 @@ public class Hangman
 	}
 	public static void twodi_list_search(String[][] list, String item)
 	{
-		
+		for(int x = 0; x<list.length ; x++)
+		{
+			if (list[x][0] == item)
+			{
+				return list[x][1];
+				//returns the link address for the search item
+			}
+		}
+		return null;
+		//return null because it needs another return value if it cannot be found
 	}
 	public static void printTwDiAr(String[][] arry2)
 	{
