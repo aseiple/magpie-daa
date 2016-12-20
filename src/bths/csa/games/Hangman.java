@@ -23,6 +23,7 @@ public class Hangman
       
 			// get all links in page
 			Elements links = doc.select("a[href]");
+			// use font[color] for used letters
 			for (Element link : links) 
 			{
 				System.out.println("\nlink: " + link.attr("href"));
@@ -57,6 +58,7 @@ public class Hangman
 				||statement.toLowerCase().contains("bizzare"))
 		{
 			response = get_letter();
+			//needs to get the set link to "difficulty link"
 		}
 		else
 		{
@@ -67,7 +69,7 @@ public class Hangman
 	public String get_letter_response(String statement)
 	{
 		String response = "";
-		//needs letter search
+		//needs letter search in the html
 		return response;
 	}
 	public static String[][] linklistMaker(String link1, int i)
@@ -104,7 +106,7 @@ public class Hangman
 		}
 		return linklist;
 	}
-	public static void twodi_list_search(String[][] list, String item)
+	public static String twodi_list_search(String[][] list, String item)
 	{
 		for(int x = 0; x<list.length ; x++)
 		{
