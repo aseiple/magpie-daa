@@ -2,11 +2,12 @@
 #### August
 - [ ] Magpie interface
 - [ ] Parsing engine (Possibly using recurrent neural networks) 
-- [ ] Memory
 
 #### Asif
-- [ ] Number guessing game
+- [x] Number guessing game
+- [ ] Internet information lookup
 - [ ] Personality
+- [ ] Memory
 
 #### Darren
 - [ ] Hangman
