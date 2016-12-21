@@ -10,8 +10,17 @@ public class ParseEngine {
         c = new Classifier("src/bths/csa/parse/models/");
     }
 
-    public double getReply(String s) {
-        return c.calculateConvergence(spilt(s), "hangman");
+    public String getReply(String s) {
+        double h = c.calculateConvergence(spilt(s), "hangman");
+        double g = c.calculateConvergence(spilt(s), "guess");
+        String r;
+        if(h > g) {
+            r = "hangman";
+        }
+        else {
+            r = "guess my number";
+        }
+        return "I think you are trying to play " + r;
     }
 
     private String[] spilt(String in) {

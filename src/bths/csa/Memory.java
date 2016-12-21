@@ -20,7 +20,7 @@ public class Memory {
 	
 	public String giveAnswerTo(String question)
 	{
-		String[] questions = new String[questions.length];
+		//String[] questions = new String[questions.length];
 		return question;
 	}
 }
