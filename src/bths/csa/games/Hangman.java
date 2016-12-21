@@ -10,7 +10,7 @@ public class Hangman
 {
 	public static void main(String[] args) 
 	{
-		String link1 = "http://www2.20q.net/hang.pl";
+		String link1 = "http://www2.20q.net/hang.pl?pfkG_rM_cnmtggZhh9AydYcsmWD_Ty4lZv_qMDScP.8LzGLydEck_PyMtoX-";
 		int n = 0;
 		try 
 		{
@@ -24,6 +24,7 @@ public class Hangman
 			// get all links in page
 			Elements links = doc.select("a[href]");
 			// use font[color] for used letters
+			// use font[size] to display the word.
 			for (Element link : links) 
 			{
 				System.out.println("\nlink: " + link.attr("href"));
@@ -37,6 +38,35 @@ public class Hangman
 			e.printStackTrace();
 		}
 		printTwDiAr(linklistMaker(link1, n));
+		System.out.println(display_word(link1));
+		//debugging
+	}
+	public static String display_word(String link)
+	//gets a String link and displays the current word
+	//Ex: "-o-------"
+	{
+		String response = "";
+		try 
+		{
+			// fetch the document over HTTP
+			Document doc = Jsoup.connect(link).get();
+      
+			// get the page title
+			String title = doc.title();
+			System.out.println("title: " + title);
+      
+			// get all links in page
+			Elements links = doc.select("font[size]");
+			// use font[color] for used letters
+			// use font[size] to display the word.
+			response = "So far: " + links.text().substring(0,links.text().indexOf(' '));
+			//cuts off string at first whitespace
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return response;
 	}
 	public String getGreeting()
 	{
@@ -48,7 +78,7 @@ public class Hangman
 	}
 	public String get_letter()
 	{
-		return "Letter?";
+		return "letter?";
 	}
 	public String get_difficulty_response(String statement)
 	{
@@ -57,7 +87,7 @@ public class Hangman
 				||statement.toLowerCase().contains("normal")
 				||statement.toLowerCase().contains("bizzare"))
 		{
-			response = get_letter();
+			response = "What is the " + get_letter();
 			//needs to get the set link to "difficulty link"
 		}
 		else
@@ -66,14 +96,14 @@ public class Hangman
 		}
 		return response;
 	}
-	public String get_letter_response(String statement)
+	public String get_letter_response(String pickedLink)
 	{
-		String response = "";
-		//needs letter search in the html
-		return response;
+		
+		return display_word(pickedLink);
 	}
 	public static String[][] linklistMaker(String link1, int i)
 	{
+		//puts all the letter links into a 2-D array
 		String useLink = link1.substring(0,19);
 		System.out.println(link1);
 		System.out.println(useLink);
