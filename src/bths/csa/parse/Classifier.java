@@ -29,8 +29,8 @@ public class Classifier {
 
     public double calculateConvergence(String[] input, String model) {
         WeightedToken[] reference = models.get(model);
-        int inputWeight = 0;
-        int targetWeight = 0;
+        double inputWeight = 0;
+        double targetWeight = 0;
         for (WeightedToken token : reference) {
             targetWeight += token.getWeight();
             for (String s : input) {
@@ -39,7 +39,6 @@ public class Classifier {
                 }
             }
         }
-
         return inputWeight / targetWeight;
     }
 }

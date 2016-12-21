@@ -1,3 +1,12 @@
-Hello 2
-Hi 2
-Welcome 2
+play 4
+can 1
+would 1
+hangman 10
+like 1
+are 1
+able 1
+want 1
+know 1
+to 3
+do 2
+you 5
