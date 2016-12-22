@@ -55,16 +55,22 @@ public class ParseEngine {
                 switch (r2) {
                     case 0:
                         System.out.println("Im doing good, how about you?");
+                        break;
                     case 1:
                         System.out.println("I feel sad.");
+                        break;
                     case 2:
                         System.out.println("Great!");
+                        break;
                     case 3:
                         System.out.println("Fine.");
+                        break;
                     case 4:
                         System.out.println("Tired.");
+                        break;
                     case 5:
                         System.out.println("Bored.");
+                        break;
                 }
                 break;
             case "unsure":
