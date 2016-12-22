@@ -39,7 +39,7 @@ public class Hangman
 		//get_letter_response("a");
 		//System.out.println(n);
 		//System.out.println("error below");
-		printTwDiAr(linklistMaker_letter("http://www2.20q.net/hang.pl?NVjE8BkSJGmYNkzbDMF",n));
+		//printTwDiAr(linklistMaker_letter("http://www2.20q.net/hang.pl?NVjE8BkSJGmYNkzbDMF",n));
 		//link1 = twodi_list_search(linklistMaker_difficulty(link1,n),"Hard");
 		//System.out.println(display_word(link1));
 		//debugging
@@ -55,8 +55,8 @@ public class Hangman
 			Document doc = Jsoup.connect(link).get();
       
 			// get the page title
-			String title = doc.title();
-			System.out.println("title: " + title);
+			//String title = doc.title();
+			//System.out.println("title: " + title);
       
 			// get all links in page
 			Elements links = doc.select("font[size]");
@@ -75,13 +75,17 @@ public class Hangman
 	{
 		return "Hello, let's play Hangman.";
 	}
+	public String getParting()
+	{
+		return "I hope you enjoyed our game. Bye.";
+	}
 	public String getDifficulty()
 	{
-		return "What is the difficulty you want to play as?";
+		return "What is the difficulty you want to play in?";
 	}
 	public String get_letter()
 	{
-		return "letter?";
+		return "What is the letter?";
 	}
 	public String get_difficulty_response(String statement)
 	{
@@ -90,11 +94,11 @@ public class Hangman
 				||statement.toLowerCase().contains("normal")
 				||statement.toLowerCase().contains("bizzare"))
 		{
-			response = "What is the " + get_letter();
-			System.out.println(link1);
+			response = get_letter();
+			//System.out.println(link1);
 			n=5;
 			link1 = twodi_list_search(linklistMaker_difficulty(link1,n),"Hard");
-			System.out.println(link1);
+			//System.out.println(link1);
 			n=33;
 		}
 		else
@@ -103,12 +107,12 @@ public class Hangman
 		}
 		return response;
 	}
-	public static String get_letter_response(String letter)
+	public String get_letter_response(String letter)
 	{
 		n--;
-		System.out.println(letter);
+		//System.out.println(letter);
 		link1=twodi_list_search(linklistMaker_letter(link1,n),letter);
-		System.out.println("Error" + link1);
+		//System.out.println("Error" + link1);
 		System.out.println(display_word(link1));
 		return display_word(link1);
 	}
@@ -116,8 +120,8 @@ public class Hangman
 	{
 		//puts all the difficulty links into a 2-D array
 		String useLink = link2.substring(0,19);
-		System.out.println(link2);
-		System.out.println(useLink);
+		//System.out.println(link2);
+		//System.out.println(useLink);
 		String[][] linklist = new String [i][2];
 		try 
 	    {
@@ -148,8 +152,8 @@ public class Hangman
 	{
 		//puts all the difficulty links into a 2-D array
 		String useLink = link2.substring(0,19);
-		System.out.println(link2);
-		System.out.println(useLink);
+		//System.out.println(link2);
+		//System.out.println(useLink);
 		String[][] linklist = new String [i][2];
 		try 
 	    {
@@ -182,7 +186,7 @@ public class Hangman
 		{
 			if (list[x][0].compareToIgnoreCase(item)==0)
 			{
-				System.out.println(list[x][1]);
+				//System.out.println(list[x][1]);
 				return list[x][1];
 				//returns the link address for the search item
 			}
@@ -199,7 +203,7 @@ public class Hangman
 			{
 				System.out.print(arry2[a][b]+ " ");
 			}
-			System.out.println();
+			//System.out.println();
 		}
 	}
 }

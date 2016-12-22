@@ -15,15 +15,17 @@ public class HangmanRunner
 		Scanner in = new Scanner (System.in);
 		String statement = in.nextLine();
 		System.out.println (hanggy.get_difficulty_response(statement));
-		statement = in.nextLine();
-		System.out.println (hanggy.get_letter_response(statement));
-		/*
+		for (int i = 0; i<27; i++)
+		{
+			statement = in.nextLine();
+			System.out.println (hanggy.get_letter_response(statement));
+			System.out.println(hanggy.get_letter());
+		}
 		while (!statement.equals("Bye"))
 		{
-			System.out.println (hanggy.getResponse(statement));
+			System.out.println (hanggy.getParting());
 			statement = in.nextLine();
 		}
-		*/
 	}
 
 }
