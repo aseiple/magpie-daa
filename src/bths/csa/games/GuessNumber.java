@@ -39,7 +39,7 @@ public class GuessNumber {
     		int mid = (low + high)/2; //divides the range in two
 			int midVal = mid; 
 			
-			System.out.println("Is it " + mid);
+			System.out.println("Is it " + mid + "(true/false): ");
 				
 			if(input.nextBoolean()) //Checks isNum
 			{

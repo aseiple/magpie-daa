@@ -16,6 +16,9 @@ public class RunMagpie {
 
          ParseEngine pe = new ParseEngine();
          Scanner scanner = new Scanner(System.in);
-         System.out.println(pe.getReply(scanner.nextLine()));
+         String line = "";
+         while (!line.equals("bye")) {
+             pe.getReply(scanner.nextLine().toLowerCase());
+         }
      }
 }
