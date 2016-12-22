@@ -113,7 +113,7 @@ public class Hangman
 		//System.out.println(letter);
 		link1=twodi_list_search(linklistMaker_letter(link1,n),letter);
 		//System.out.println("Error" + link1);
-		System.out.println(display_word(link1));
+		//System.out.println(display_word(link1));
 		return display_word(link1);
 	}
 	public static String[][] linklistMaker_letter(String link2, int i)

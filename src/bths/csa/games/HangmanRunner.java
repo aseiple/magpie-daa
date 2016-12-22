@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class HangmanRunner 
 {
-
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
@@ -21,7 +20,7 @@ public class HangmanRunner
 			System.out.println (hanggy.get_letter_response(statement));
 			System.out.println(hanggy.get_letter());
 		}
-		while (!statement.equals("Bye"))
+		while (!statement.equals("Bye")||!statement.equals("bye"))
 		{
 			System.out.println (hanggy.getParting());
 			statement = in.nextLine();
