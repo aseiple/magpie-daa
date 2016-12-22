@@ -8,19 +8,18 @@ import org.jsoup.select.Elements;
 //Website "http://www2.20q.net/hang.pl"
 public class Hangman 
 {
+	public static String link1 = "http://www2.20q.net/hang.pl";
+	public static int n = 0;
 	public static void main(String[] args) 
 	{
-		String link1 = "http://www2.20q.net/hang.pl?pfkG_rM_cnmtggZhh9AydYcsmWD_Ty4lZv_qMDScP.8LzGLydEck_PyMtoX-";
-		int n = 0;
+		
 		try 
 		{
 			// fetch the document over HTTP
-			Document doc = Jsoup.connect(link1).get();
-      
+			Document doc = Jsoup.connect("http://www2.20q.net/hang.pl?NVjE8BkSJGmYNkzbDMF").get();
 			// get the page title
 			String title = doc.title();
 			System.out.println("title: " + title);
-      
 			// get all links in page
 			Elements links = doc.select("a[href]");
 			// use font[color] for used letters
@@ -37,8 +36,12 @@ public class Hangman
 		{
 			e.printStackTrace();
 		}
-		printTwDiAr(linklistMaker(link1, n));
-		System.out.println(display_word(link1));
+		//get_letter_response("a");
+		//System.out.println(n);
+		//System.out.println("error below");
+		printTwDiAr(linklistMaker_letter("http://www2.20q.net/hang.pl?NVjE8BkSJGmYNkzbDMF",n));
+		//link1 = twodi_list_search(linklistMaker_difficulty(link1,n),"Hard");
+		//System.out.println(display_word(link1));
 		//debugging
 	}
 	public static String display_word(String link)
@@ -88,7 +91,11 @@ public class Hangman
 				||statement.toLowerCase().contains("bizzare"))
 		{
 			response = "What is the " + get_letter();
-			//needs to get the set link to "difficulty link"
+			System.out.println(link1);
+			n=5;
+			link1 = twodi_list_search(linklistMaker_difficulty(link1,n),"Hard");
+			System.out.println(link1);
+			n=33;
 		}
 		else
 		{
@@ -96,22 +103,26 @@ public class Hangman
 		}
 		return response;
 	}
-	public String get_letter_response(String pickedLink)
+	public static String get_letter_response(String letter)
 	{
-		
-		return display_word(pickedLink);
+		n--;
+		System.out.println(letter);
+		link1=twodi_list_search(linklistMaker_letter(link1,n),letter);
+		System.out.println("Error" + link1);
+		System.out.println(display_word(link1));
+		return display_word(link1);
 	}
-	public static String[][] linklistMaker(String link1, int i)
+	public static String[][] linklistMaker_letter(String link2, int i)
 	{
-		//puts all the letter links into a 2-D array
-		String useLink = link1.substring(0,19);
-		System.out.println(link1);
+		//puts all the difficulty links into a 2-D array
+		String useLink = link2.substring(0,19);
+		System.out.println(link2);
 		System.out.println(useLink);
 		String[][] linklist = new String [i][2];
 		try 
 	    {
 			// fetch the document over HTTP
-			Document doc = Jsoup.connect(link1).get();
+			Document doc = Jsoup.connect(link2).get();
 	      
 			// get the page title
 			//String title = doc.title();
@@ -122,12 +133,41 @@ public class Hangman
 			int m = 0;
 			for (Element link : links) 
 			{
-				if (m<i)
-	    	  	{
 					linklist [m][0] = link.text();
 					linklist [m][1] = useLink + link.attr("href");
 					m++;
-	    	  	}
+			}
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return linklist;
+	}
+	public static String[][] linklistMaker_difficulty(String link2, int i)
+	{
+		//puts all the difficulty links into a 2-D array
+		String useLink = link2.substring(0,19);
+		System.out.println(link2);
+		System.out.println(useLink);
+		String[][] linklist = new String [i][2];
+		try 
+	    {
+			// fetch the document over HTTP
+			Document doc = Jsoup.connect(link2).get();
+	      
+			// get the page title
+			//String title = doc.title();
+			//System.out.println("title: " + title);
+	      
+			// get all links in page
+			Elements links = doc.select("a[href]");
+			int m = 0;
+			for (Element link : links) 
+			{
+					linklist [m][0] = link.text();
+					linklist [m][1] = useLink + link.attr("href");
+					m++;
 			}
 		}
 		catch (IOException e) 
@@ -140,8 +180,9 @@ public class Hangman
 	{
 		for(int x = 0; x<list.length ; x++)
 		{
-			if (list[x][0] == item)
+			if (list[x][0].compareToIgnoreCase(item)==0)
 			{
+				System.out.println(list[x][1]);
 				return list[x][1];
 				//returns the link address for the search item
 			}
