@@ -5,22 +5,17 @@ import java.util.Queue;
 
 public class Memory {
 	
-	private Queue questions = new LinkedList();
-	private Queue answers = new LinkedList();
+	private Queue<String> questions = new LinkedList();
+	private Queue <String> answers = new LinkedList();
 	
-	public void getQuestion(String question)
+	public void storeQuestions(String question)
 	{
+		//String[] questions = new String[questions.length];
 		questions.offer(question);
 	}
 	
-	public void getAnswer(String answer)
+	public boolean alreadyAsked (String question)
 	{
-		answers.offer(answer);
-	}
-	
-	public String giveAnswerTo(String question)
-	{
-		//String[] questions = new String[questions.length];
-		return question;
+		return questions.contains(question);
 	}
 }
