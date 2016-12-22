@@ -19,19 +19,13 @@ public class ParseEngine {
         s = removePunctuation(s);
         switch (maxC(s)) {
             case "h":
-                System.out.println("Would you like to play Hangman?");
-                if(scanner.nextLine() == "y" || scanner.nextLine() == "yes") {
-                    HangmanRunner hangmanRunner = new HangmanRunner();
-                    hangmanRunner.PlayHangman();
-                }
+                HangmanRunner hangmanRunner = new HangmanRunner();
+                hangmanRunner.PlayHangman();
                 break;
             case "g":
-                System.out.println("Would you like me to guess your number?");
-                if(scanner.nextLine() == "y" || scanner.nextLine() == "yes") {
-                    System.out.println("Please pick a number between 0 and 100");
-                    GuessNumber guessNumber = new GuessNumber(100);
-                    guessNumber.play();
-                }
+                System.out.println("Please pick a number between 0 and 100");
+                GuessNumber guessNumber = new GuessNumber(100);
+                guessNumber.play();
                 break;
             case "greeting":
                 int r = ThreadLocalRandom.current().nextInt(0, 6);
