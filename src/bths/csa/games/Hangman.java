@@ -1,3 +1,7 @@
+//Darren Kong
+//AP Java
+//December 22, 2016
+
 package bths.csa.games;
 import java.io.IOException;
 
