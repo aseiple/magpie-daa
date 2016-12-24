@@ -4,7 +4,6 @@ import bths.csa.games.GuessNumber;
 import bths.csa.games.HangmanRunner;
 import bths.csa.parse.Classifier;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ParseEngine {
@@ -15,7 +14,6 @@ public class ParseEngine {
     }
 
     public void getReply(String s) {
-        Scanner scanner = new Scanner(System.in);
         s = removePunctuation(s);
         switch (maxC(s)) {
             case "h":

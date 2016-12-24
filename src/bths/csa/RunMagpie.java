@@ -6,19 +6,18 @@ import java.util.Scanner;
 
 public class RunMagpie {
      public static void main(String[] args) throws IOException {
-//            String response = null;
-//            ParseEngine parse = new ParseEngine();
-//            System.out.println("Hello!");
-//            Scanner sc = new Scanner(System.in);
-//            response = sc.nextLine();
-//            System.out.println(parse.getReply(response));
-
-
          ParseEngine pe = new ParseEngine();
          Scanner scanner = new Scanner(System.in);
          String line = "";
-         while (!line.equals("bye")) {
-             pe.getReply(scanner.nextLine().toLowerCase());
+         boolean r = true;
+         while (!line.equals(r)) {
+             line = scanner.nextLine().toLowerCase();
+             if (line.equals("bye")) {
+                 r = false;
+             }
+             else {
+                 pe.getReply(line);
+             }
          }
      }
 }
